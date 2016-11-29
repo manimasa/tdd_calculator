@@ -74,7 +74,8 @@ public class JUnitCalculator {
     
      @Test
      public void testAdd_all_change_delimeter() {
-         assertEquals(toTest.add("//;\n1;2"), 6);
+         assertEquals(toTest.add("//;\n1;2"), 3);
      }
+
      
 }
