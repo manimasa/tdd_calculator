@@ -29,7 +29,7 @@ public class Calculator {
         int answer = 0;
         for (int i = 0; i < lenght; i++) {
             current_val = Character.getNumericValue(numbers.charAt(i));
-            if (numbers.charAt(i) != ',') {
+            if (numbers.charAt(i) != ',' || numbers.charAt(i) != '\n') {
                 answer += current_val;
             }
         }
