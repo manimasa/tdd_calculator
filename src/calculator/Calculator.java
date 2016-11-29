@@ -15,14 +15,22 @@ public class Calculator {
 
     public int add(String numbers) {
         int answer = 0;
+        
         if (numbers.length() >= 1) {
             int lenght = numbers.length();
-            int current_val;
-            for (int i = 0; i < lenght; i++) {
-                current_val = Character.getNumericValue(numbers.charAt(i));
-                if (numbers.charAt(i) != ',') {
-                    answer += current_val;
-                }
+          answer =  sumOfNumbers(numbers, lenght);
+        }
+        return answer;
+    }
+
+
+    int sumOfNumbers(String numbers, int lenght) {
+        int current_val;
+        int answer = 0;
+        for (int i = 0; i < lenght; i++) {
+            current_val = Character.getNumericValue(numbers.charAt(i));
+            if (numbers.charAt(i) != ',') {
+                answer += current_val;
             }
         }
         return answer;
