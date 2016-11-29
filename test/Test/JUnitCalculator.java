@@ -71,4 +71,10 @@ public class JUnitCalculator {
      public void testAdd_all_newline() {
          assertEquals(toTest.add("1\n2,3"), 6);
      }
+    
+     @Test
+     public void testAdd_all_change_delimeter() {
+         assertEquals(toTest.add("//;\n1;2"), 6);
+     }
+     
 }
