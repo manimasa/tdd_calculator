@@ -59,6 +59,11 @@ public class JUnitCalculator {
      
       @Test
      public void testAdd_2() {
-         assertEquals(toTest.add("12"), 3);
+         assertEquals(toTest.add("1,2"), 3);
+     }
+     
+     @Test
+     public void testAdd_all() {
+         assertEquals(toTest.add("1,2,3,4"), 10);
      }
 }
