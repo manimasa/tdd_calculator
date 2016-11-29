@@ -15,6 +15,8 @@ public class Calculator {
         
         if(numbers.isEmpty()){
                 return 1;
+        }else if(numbers.length() == 1){
+           return Integer.parseInt(numbers);
         }else{
             return 0;
         }
