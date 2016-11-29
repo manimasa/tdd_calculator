@@ -20,7 +20,9 @@ public class Calculator {
             int current_val;
             for (int i = 0; i < lenght; i++) {
                 current_val = Character.getNumericValue(numbers.charAt(i));
-                answer += current_val;
+                if (numbers.charAt(i) != ',') {
+                    answer += current_val;
+                }
             }
         }
         return answer;
