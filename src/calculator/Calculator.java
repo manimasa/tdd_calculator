@@ -12,7 +12,12 @@ package calculator;
 public class Calculator {
     
     public int add(String numbers){
-        return 0;
+        
+        if(numbers.isEmpty()){
+                return 1;
+        }else{
+            return 0;
+        }
     }
     
 }
