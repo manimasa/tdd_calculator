@@ -50,4 +50,9 @@ public class JUnitCalculator {
      public void testEmptyString() {
          assertEquals(toTest.add(""), 1);
      }
+     
+      @Test
+     public void testAdd_1() {
+         assertEquals(toTest.add("1"), 1);
+     }
 }
