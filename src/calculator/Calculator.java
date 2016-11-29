@@ -11,28 +11,46 @@ package calculator;
  */
 public class Calculator {
 
+    private final int NEW_LINE = 0, COMMA = 1;
     private char[] delimeters = {'\n', ','};
+    private boolean change_delimiter;
 
     public int add(String numbers) {
         int answer = 0;
-        
-        if (numbers.length() >= 1 && Character.isDigit(numbers.charAt(0))) {
-            int lenght = numbers.length();
-            answer = sumOfNumbers(numbers, lenght);
+
+        if (numbers.isEmpty()) {
+            return answer;
+        } else if (numbers.length() >= 1) {
+            for (int i = 0; i < 4; i++) {
+                change_delimiter = !Character.isDigit(numbers.charAt(0));
+                if (change_delimiter) {
+                    numbers = changeDelimiter(numbers);
+                }
+                answer = sumOfNumbers(numbers);
+            }
         }
         return answer;
     }
 
-    int sumOfNumbers(String numbers, int lenght) {
+    private int sumOfNumbers(String numbers) {
         int current_val;
         int answer = 0;
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < numbers.length(); i++) {
             current_val = Character.getNumericValue(numbers.charAt(i));
-            if (numbers.charAt(i) != delimeters[0] && numbers.charAt(i) != delimeters[1]) {
+            if (numbers.charAt(i) != delimeters[NEW_LINE] && numbers.charAt(i) != delimeters[COMMA]) {
                 answer += current_val;
             }
         }
         return answer;
+    }
+
+    private String changeDelimiter(String numbers) {
+        if (numbers.charAt(3) == delimeters[COMMA]) {
+            delimeters[COMMA] = numbers.charAt(2);
+        } else if (numbers.charAt(3) == delimeters[NEW_LINE]) {
+            delimeters[NEW_LINE] = numbers.charAt(2);
+        }
+        return numbers.substring(4);
     }
 
 }
