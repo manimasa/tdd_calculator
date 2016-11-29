@@ -11,7 +11,7 @@ package calculator;
  */
 public class Calculator {
 
-    private final int NEW_LINE = 0, COMMA = 1;
+    private final int NEW_LINE = 0, COMMA = 1, DEL_TO_REPLACE = 3, USER_DEL = 2;
     private char[] delimeters = {'\n', ','};
     private boolean change_delimiter;
 
@@ -42,10 +42,10 @@ public class Calculator {
     }
 
     private String changeDelimiter(String numbers) {
-        if (numbers.charAt(3) == delimeters[COMMA]) {
-            delimeters[COMMA] = numbers.charAt(2);
-        } else if (numbers.charAt(3) == delimeters[NEW_LINE]) {
-            delimeters[NEW_LINE] = numbers.charAt(2);
+        if (numbers.charAt(DEL_TO_REPLACE) == delimeters[COMMA]) {
+            delimeters[COMMA] = numbers.charAt(USER_DEL);
+        } else if (numbers.charAt(DEL_TO_REPLACE) == delimeters[NEW_LINE]) {
+            delimeters[NEW_LINE] = numbers.charAt(USER_DEL);
         }
         return numbers.substring(4);
     }
