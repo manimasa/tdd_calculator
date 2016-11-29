@@ -26,6 +26,7 @@ public class JUnitCalculator {
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -48,11 +49,16 @@ public class JUnitCalculator {
     
      @Test
      public void testEmptyString() {
-         assertEquals(toTest.add(""), 1);
+         assertEquals(toTest.add(""), 0);
      }
      
       @Test
      public void testAdd_1() {
-         assertEquals(toTest.add("1"), 1);
+         assertEquals(toTest.add("5"), 5);
+     }
+     
+      @Test
+     public void testAdd_2() {
+         assertEquals(toTest.add("12"), 3);
      }
 }
