@@ -10,13 +10,19 @@ package calculator;
  * @author Martins
  */
 public class Calculator {
+    String value;
     
     public int add(String numbers){
         
         if(numbers.isEmpty()){
-                return 1;
+                return 0;
         }else if(numbers.length() == 1){
            return Integer.parseInt(numbers);
+        }else if(numbers.length() == 2){
+            int val_one = Character.getNumericValue(numbers.charAt(0));
+            int val_two = Character.getNumericValue(numbers.charAt(1));
+            
+            return val_one + val_two;
         }else{
             return 0;
         }
