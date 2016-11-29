@@ -10,20 +10,20 @@ package calculator;
  * @author Martins
  */
 public class Calculator {
+
     String value;
-    
-    public int add(String numbers){
-        
-        if(numbers.length() == 1){
-           return Integer.parseInt(numbers);
-        }else if(numbers.length() == 2){
-            int val_one = Character.getNumericValue(numbers.charAt(0));
-            int val_two = Character.getNumericValue(numbers.charAt(1));
-            
-            return val_one + val_two;
-        }else{
-            return 0;
+
+    public int add(String numbers) {
+        int answer = 0;
+        if (numbers.length() >= 1) {
+            int lenght = numbers.length();
+            int current_val;
+            for (int i = 0; i < lenght; i++) {
+                current_val = Character.getNumericValue(numbers.charAt(i));
+                answer += current_val;
+            }
         }
+        return answer;
     }
-    
+
 }
