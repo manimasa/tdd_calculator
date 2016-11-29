@@ -17,10 +17,7 @@ public class Calculator {
 
     public int add(String numbers) {
         int answer = 0;
-
-        if (numbers.isEmpty()) {
-            return answer;
-        } else if (numbers.length() >= 1) {
+        if (numbers.length() >= 1) {
             for (int i = 0; i < 4; i++) {
                 change_delimiter = !Character.isDigit(numbers.charAt(0));
                 if (change_delimiter) {
