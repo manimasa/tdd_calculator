@@ -66,4 +66,9 @@ public class JUnitCalculator {
      public void testAdd_all() {
          assertEquals(toTest.add("1,2,3,4"), 10);
      }
+     
+     @Test
+     public void testAdd_all_newline() {
+         assertEquals(toTest.add("1\n2,3"), 6);
+     }
 }
