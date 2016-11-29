@@ -8,6 +8,7 @@ package Test;
 import calculator.Calculator;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,6 +48,6 @@ public class JUnitCalculator {
     
      @Test
      public void testEmptyString() {
-         
+         assertEquals(toTest.add(""), 1);
      }
 }
