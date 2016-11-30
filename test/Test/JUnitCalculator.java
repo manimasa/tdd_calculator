@@ -84,14 +84,14 @@ public class JUnitCalculator {
     @Test
     public void testAddNegative() {
         thrown.expect(NumberFormatException.class);
-        thrown.expectMessage("negative not allowed: " + 1);
+        thrown.expectMessage("negative not allowed: -"+1);
         toTest.add("//;\n-1;2");
     }
     
     @Test
     public void testAddNegatives(){
         thrown.expect(NumberFormatException.class);
-        thrown.expectMessage("negative not allowed: " + 1 + " " + 2 + " " + 3);
+        thrown.expectMessage("negative not allowed: -1 -3");
         toTest.add("-1,2,-3,4");
     }
 
