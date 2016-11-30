@@ -11,32 +11,35 @@ import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
-
+import org.junit.rules.ExpectedException;
 
 /**
  *
  * @author Martins
  */
 public class JUnitCalculator {
+
     private Calculator toTest;
+
     public JUnitCalculator() {
         toTest = new Calculator();
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
-        
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -46,41 +49,43 @@ public class JUnitCalculator {
     //
     // @Test
     // public void hello() {}
-    
-     @Test
-     public void testEmptyString() throws Exception {
-         assertEquals(toTest.add(""), 0);
-     }
-     
-      @Test
-     public void testAddOneNumber() throws Exception {
-         assertEquals(toTest.add("5"), 5);
-     }
-     
-      @Test
-     public void testAddTwoNumbers() throws Exception {
-         assertEquals(toTest.add("1,2"), 3);
-     }
-     
-     @Test
-     public void testAddMany() throws Exception {
-         assertEquals(toTest.add("1,2,3,4"), 10);
-     }
-     
-     @Test
-     public void testAddManyUseNewline() throws Exception {
-         assertEquals(toTest.add("1\n2,3"), 6);
-     }
-    
-     @Test
-     public void testAddManyChangeDelimeter() throws Exception {
-         assertEquals(toTest.add("//;\n1;2"), 3);
-     }
-     
-     @Test(expected=NumberFormatException.class)
-     public void testAddNegative() throws Exception{
-         toTest.add("//;\n-1;2");
-     }
+    @Test
+    public void testEmptyString() {
+        assertEquals(toTest.add(""), 0);
+    }
 
-     
+    @Test
+    public void testAddOneNumber() {
+        assertEquals(toTest.add("5"), 5);
+    }
+
+    @Test
+    public void testAddTwoNumbers() {
+        assertEquals(toTest.add("1,2"), 3);
+    }
+
+    @Test
+    public void testAddMany() {
+        assertEquals(toTest.add("1,2,3,4"), 10);
+    }
+
+    @Test
+    public void testAddManyUseNewline() {
+        assertEquals(toTest.add("1\n2,3"), 6);
+    }
+
+    @Test
+    public void testAddManyChangeDelimeter() {
+        assertEquals(toTest.add("//;\n1;2"), 3);
+    }
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void testAddNegative() {
+        thrown.expect(NumberFormatException.class);
+        thrown.expectMessage("negative not allowed: " + 1);
+        toTest.add("//;\n-1;2");
+    }
+
 }
