@@ -46,7 +46,9 @@ public class Calculator {
                 aNumberString += numbers.charAt(i);
             }else if (numbers.charAt(i) == delimeters[NEW_LINE] || numbers.charAt(i) == delimeters[COMMA]) {
                 number = Integer.parseInt(aNumberString);
-                answer += number;
+                if(number < 1000){
+                        answer += number;
+                }
                 aNumberString = "";
             }
 
