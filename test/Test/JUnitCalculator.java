@@ -77,8 +77,9 @@ public class JUnitCalculator {
          assertEquals(toTest.add("//;\n1;2"), 3);
      }
      
+     @Test
      public void testAddNegative(){
-         
+         assertEquals(toTest.add("//;\n-1;2"), 0);
      }
 
      
