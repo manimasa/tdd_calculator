@@ -31,14 +31,28 @@ public class Calculator {
         int current_val;
         int answer = 0;
         String negatives = "";
+        String aNumberString = "";
+        int number;
+
         for (int i = 0; i < numbers.length(); i++) {
             current_val = Character.getNumericValue(numbers.charAt(i));
 
             if (numbers.charAt(i) == '-') {
                 negative = true;
                 negatives += " -" + numbers.charAt(i + 1);
-            } else if (numbers.charAt(i) != delimeters[NEW_LINE] && numbers.charAt(i) != delimeters[COMMA]) {
-                answer += current_val;
+            }
+
+            if (numbers.charAt(i) != delimeters[NEW_LINE] && numbers.charAt(i) != delimeters[COMMA]) {
+                aNumberString += numbers.charAt(i);
+            }else if (numbers.charAt(i) == delimeters[NEW_LINE] || numbers.charAt(i) == delimeters[COMMA]) {
+                number = Integer.parseInt(aNumberString);
+                answer += number;
+                aNumberString = "";
+            }
+
+            if (i + 1 == numbers.length()) {
+                number = Integer.parseInt(aNumberString);
+                answer += number;
             }
         }
         if (negative) {
