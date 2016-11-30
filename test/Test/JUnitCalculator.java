@@ -48,38 +48,38 @@ public class JUnitCalculator {
     // public void hello() {}
     
      @Test
-     public void testEmptyString() {
+     public void testEmptyString() throws Exception {
          assertEquals(toTest.add(""), 0);
      }
      
       @Test
-     public void testAddOneNumber() {
+     public void testAddOneNumber() throws Exception {
          assertEquals(toTest.add("5"), 5);
      }
      
       @Test
-     public void testAddTwoNumbers() {
+     public void testAddTwoNumbers() throws Exception {
          assertEquals(toTest.add("1,2"), 3);
      }
      
      @Test
-     public void testAddMany() {
+     public void testAddMany() throws Exception {
          assertEquals(toTest.add("1,2,3,4"), 10);
      }
      
      @Test
-     public void testAddManyUseNewline() {
+     public void testAddManyUseNewline() throws Exception {
          assertEquals(toTest.add("1\n2,3"), 6);
      }
     
      @Test
-     public void testAddManyChangeDelimeter() {
+     public void testAddManyChangeDelimeter() throws Exception {
          assertEquals(toTest.add("//;\n1;2"), 3);
      }
      
-     @Test
-     public void testAddNegative(){
-         assertEquals(toTest.add("//;\n-1;2"), 0);
+     @Test(expected=NumberFormatException.class)
+     public void testAddNegative() throws Exception{
+         toTest.add("//;\n-1;2");
      }
 
      
