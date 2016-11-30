@@ -94,5 +94,10 @@ public class JUnitCalculator {
         thrown.expectMessage("negative not allowed: -1 -3");
         toTest.add("-1,2,-3,4");
     }
+    
+    @Test
+    public void testAddNumberAbove1000(){
+        assertEquals(toTest.add("//;\n1001;2"), 2);
+    }
 
 }
