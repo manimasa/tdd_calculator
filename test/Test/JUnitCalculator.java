@@ -53,28 +53,32 @@ public class JUnitCalculator {
      }
      
       @Test
-     public void testAdd_1() {
+     public void testAddOneNumber() {
          assertEquals(toTest.add("5"), 5);
      }
      
       @Test
-     public void testAdd_2() {
+     public void testAddTwoNumbers() {
          assertEquals(toTest.add("1,2"), 3);
      }
      
      @Test
-     public void testAdd_all() {
+     public void testAddMany() {
          assertEquals(toTest.add("1,2,3,4"), 10);
      }
      
      @Test
-     public void testAdd_all_newline() {
+     public void testAddManyUseNewline() {
          assertEquals(toTest.add("1\n2,3"), 6);
      }
     
      @Test
-     public void testAdd_all_change_delimeter() {
+     public void testAddManyChangeDelimeter() {
          assertEquals(toTest.add("//;\n1;2"), 3);
+     }
+     
+     public void testAddNegative(){
+         
      }
 
      
