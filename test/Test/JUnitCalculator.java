@@ -87,5 +87,12 @@ public class JUnitCalculator {
         thrown.expectMessage("negative not allowed: " + 1);
         toTest.add("//;\n-1;2");
     }
+    
+    @Test
+    public void testAddNegatives(){
+        thrown.expect(NumberFormatException.class);
+        thrown.expectMessage("negative not allowed: " + 1 + " " + 2 + " " + 3);
+        toTest.add("-1,2,-3,4");
+    }
 
 }
