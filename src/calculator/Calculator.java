@@ -14,6 +14,7 @@ public class Calculator {
     private final int NEW_LINE = 0, COMMA = 1, DEL_TO_REPLACE = 3, USER_DEL = 2;
     private char[] delimeters = {'\n', ','};
     private boolean change_delimiter;
+    private boolean negative;
 
     public int add(String numbers) {
         int answer = 0;
@@ -26,19 +27,22 @@ public class Calculator {
         return answer;
     }
 
-    private int sumOfNumbers(String numbers){
+    private int sumOfNumbers(String numbers) {
         int current_val;
         int answer = 0;
+        String negatives = "";
         for (int i = 0; i < numbers.length(); i++) {
             current_val = Character.getNumericValue(numbers.charAt(i));
-            
-            if(numbers.charAt(i) == '-'){
-                throw new NumberFormatException ("negative not allowed: " + numbers.charAt(i+1));
-            }
-            
-            if (numbers.charAt(i) != delimeters[NEW_LINE] && numbers.charAt(i) != delimeters[COMMA]) {
+
+            if (numbers.charAt(i) == '-') {
+                negative = true;
+                negatives += " -" + numbers.charAt(i + 1);
+            } else if (numbers.charAt(i) != delimeters[NEW_LINE] && numbers.charAt(i) != delimeters[COMMA]) {
                 answer += current_val;
             }
+        }
+        if (negative) {
+            throw new NumberFormatException("negative not allowed:".concat(negatives));
         }
         return answer;
     }
