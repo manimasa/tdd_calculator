@@ -17,14 +17,8 @@ public class Calculator {
 
     public int add(String numbers) {
         int answer = 0;
-        int counter = 0;
         if (numbers.length() >= 1) {
-            for (int i = 0; i < numbers.length(); i++) {
-                if (!Character.isDigit(numbers.charAt(i)) && i < 3) {
-                    counter++;
-                }
-            }
-            if (counter == 3) {
+            if (getDelimeterChanged(numbers)) {
                 numbers = changeDelimiter(numbers);
             }
             answer = sumOfNumbers(numbers);
@@ -51,6 +45,16 @@ public class Calculator {
             delimeters[NEW_LINE] = numbers.charAt(USER_DEL);
         }
         return numbers.substring(4);
+    }
+
+    private boolean getDelimeterChanged(String numbers) {
+        int counter = 0;
+        for (int i = 0; i < numbers.length(); i++) {
+            if (!Character.isDigit(numbers.charAt(i)) && i < 3) {
+                counter++;
+            }
+        }
+        return (counter == 3);
     }
 
 }
