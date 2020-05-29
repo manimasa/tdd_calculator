@@ -99,5 +99,10 @@ public class JUnitCalculator {
     public void testAddNumberAbove1000(){
         assertEquals(toTest.add("//;\n1001;2"), 2);
     }
+    
+    @Test
+    public void testDelimeterOfAnyLength(){
+         assertEquals(toTest.add("//***\n1***2***3"), 6);
+    }
 
 }
